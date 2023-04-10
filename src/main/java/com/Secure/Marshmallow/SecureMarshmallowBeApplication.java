@@ -1,4 +1,4 @@
-package com.securemarshmallow.securemarshmallow_be;
+package com.Secure.Marshmallow;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
