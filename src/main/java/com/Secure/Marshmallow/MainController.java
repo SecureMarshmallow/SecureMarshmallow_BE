@@ -19,7 +19,7 @@ public class MainController {
 
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestParam String username, @RequestParam String password) {
-        User user = (User) userRepository.Login(username, password);
+        User user = (User) userRepository.login(username, password);
         if (user == null) {
             return ResponseEntity.notFound().build();
         }
@@ -34,7 +34,7 @@ public class MainController {
 
     @PostMapping("/register")
     public ResponseEntity<User> Register(@RequestParam String username, @RequestParam String password,@RequestParam String id,@RequestParam String gmail) {
-        User user = (User) userRepository.Register(username, id, password, gmail);
+        User user = (User) userRepository.register(username, id, password, gmail);
         if (user == null) {
             return ResponseEntity.notFound().build();
         } else if (user != null) {

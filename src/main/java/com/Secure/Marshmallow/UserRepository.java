@@ -11,7 +11,7 @@ public class UserRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public User Register(String username, String id, String password, String gmail) {
+    public User register(String username, String id, String password, String gmail) {
         User user = new User();
         user.setUsername(username);
         user.setId(id);
@@ -22,7 +22,7 @@ public class UserRepository {
         return user;
     }
 
-    public User Login(String username, String password) {
+    public User login(String username, String password) {
         User user = em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
                 .setParameter("username", username)
                 .setParameter("password", password)
