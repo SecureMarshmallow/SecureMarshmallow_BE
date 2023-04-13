@@ -1,4 +1,5 @@
-package com.Secure.Marshmallow;
+package com.Secure.Marshmallow.domain;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +16,18 @@ public class Board {
     private String content;
     @Column(nullable = false)
     private String password;
+
+    public Board(String title, String writer, String content, String password)
+    {
+        this.title = title;
+        this.writer = writer;
+        this.content = content;
+        this.password = password;
+    }
+
+    public Board() {
+
+    }
 
     public int getIdx() {
         return idx;

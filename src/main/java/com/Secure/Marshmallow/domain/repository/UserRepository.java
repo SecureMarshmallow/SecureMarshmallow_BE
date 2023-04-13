@@ -1,4 +1,6 @@
-package com.Secure.Marshmallow;
+package com.Secure.Marshmallow.domain.repository;
+
+import com.Secure.Marshmallow.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,21 +11,21 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserRepository {
     @PersistenceContext
-    private EntityManager em;
+    private EntityManager entityManager;
 
-    public User register(String username, String id, String password, String gmail) {
-        User user = new User();
+    public User register(String username, String id, String password, String email) {
+        User user = new User(username, id, password, email);
         user.setUsername(username);
         user.setId(id);
         String encodedPassword = new BCryptPasswordEncoder().encode(password);
         user.setPassword(encodedPassword);
-        user.setGmail(gmail);
-        em.persist(user);
+        user.setEmail(email);
+        entityManager.persist(user);
         return user;
     }
 
     public User login(String username, String password) {
-        User user = em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+        User user = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
                 .setParameter("username", username)
                 .setParameter("password", password)
                 .getSingleResult();

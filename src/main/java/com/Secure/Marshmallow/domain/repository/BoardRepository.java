@@ -1,7 +1,7 @@
-package com.Secure.Marshmallow;
-
+package com.Secure.Marshmallow.domain.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import com.Secure.Marshmallow.domain.Board;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +12,7 @@ public class BoardRepository {
     private EntityManager em;
 
     public Board writePost(String title, String writer, String content, String password) {
-        Board board = new Board();
+        Board board = new Board(title, writer, content, password);
         board.setTitle(title);
         board.setWriter(writer);
         board.setContent(content);

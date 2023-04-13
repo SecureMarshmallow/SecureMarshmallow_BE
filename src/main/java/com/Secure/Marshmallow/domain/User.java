@@ -1,4 +1,4 @@
-package com.Secure.Marshmallow;
+package com.Secure.Marshmallow.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,19 @@ public class User {
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
-    private String gmail;
+    private String email;
+
+    public User(String username, String id, String password, String email)
+    {
+        this.username = username;
+        this.id = id;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User() {
+
+    }
 
     public String getUsername() {
         return username;
@@ -23,7 +35,6 @@ public class User {
         this.username = username;
     }
 
-    // id getter/setter
     public String getId() {
         return id;
     }
@@ -37,10 +48,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getGmail() {
-        return gmail;
+    public String getEmail() {
+        return email;
     }
-    public void setGmail(String gmail) {
-        this.gmail = gmail;
+    public void setEmail(String gmail) {
+        this.email = gmail;
     }
 }

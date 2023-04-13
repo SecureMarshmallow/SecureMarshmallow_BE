@@ -1,13 +1,12 @@
-package com.Secure.Marshmallow;
+package com.Secure.Marshmallow.domain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 @SpringBootApplication
-public class SecureMarshmallowBeApplication {
+public class MarshmallowApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecureMarshmallowBeApplication.class, args);
+		SpringApplication.run(MarshmallowApplication.class, args);
 	}
 
 }
